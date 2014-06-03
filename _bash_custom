@@ -1,0 +1,69 @@
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+PYTHON_VIRTUALENV_BASEPATH="$HOME/python/virtualenv"
+function pyenv {
+    if [ -z "$1" ]; then
+        echo `ls $PYTHON_VIRTUALENV_BASEPATH`
+    elif [ $1 == '--create' ]; then
+        pushd $PYTHON_VIRTUALENV_BASEPATH; virtualenv --no-site-packages $2; popd;
+    else
+        source $PYTHON_VIRTUALENV_BASEPATH/$1/bin/activate;
+    fi
+}
+
+in_vim() {
+    in_vim=`ps | grep -i 'vim' | grep -v 'grep' | wc -l | awk '{print $1}'`
+    if [ "$in_vim" -gt "0" ]; then
+        echo "(vim $in_vim)"
+    fi
+    echo  ""
+}
+
+#show git branches in bash prompt
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+}
+
+function proml {
+  local         RED="\[\033[0;31m\]"
+  local   LIGHT_RED="\[\033[1;31m\]"
+  local      YELLOW="\[\033[0;33m\]"
+  local LIGHT_GREEN="\[\033[1;32m\]"
+  local       WHITE="\[\033[1;37m\]"
+  local  LIGHT_GRAY="\[\033[0;37m\]"
+  local LIGHT_PURPLE="\[\033[1;34m\]"
+  local RS="\[\033[0m\]"    # reset
+
+PS1="$YELLOW\$(in_vim)$LIGHT_GREEN\$(parse_git_branch)\
+$RS$PS1"
+}
+proml
+
+#add local bin to path
+export PATH=/usr/local/bin:$PATH
+export PATH=~/bin:$PATH:/usr/local/sbin
+export PYTHONSTARTUP=~/.pystartup
+
+if [[ $TERM == screen-256color* ]]; then
+  screen_set_window_title () {
+    local HPWD="$PWD"
+    case $HPWD in
+      $HOME) HPWD="~";;
+
+
+      ## long name option:
+      # $HOME/*) HPWD="~${HPWD#$HOME}";;
+
+
+      ## short name option:
+      *) HPWD=`basename "$HPWD"`;;
+
+
+    esac
+    printf '\ek%s\e\\' "$HPWD"
+  }
+  PROMPT_COMMAND="screen_set_window_title; $PROMPT_COMMAND"
+fi

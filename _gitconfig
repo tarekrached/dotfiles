@@ -1,0 +1,31 @@
+[user]
+    name = Jeff Magnusson
+    email = magnussj@gmail.com
+[log]
+    decorate = short
+[color]
+    ui = auto
+    interactive = auto
+[pager]
+    status = true
+    show-branch = true
+[alias]
+    st = status -sb
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author jmagnusson
+    purr = pull --rebase
+    wdiff = diff --word-diff
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[merge]
+    tool = /usr/bin/meld
+[format]
+    numbered = auto
+[core]
+    excludesfile = /home/jmagnusson/.gitignore
+    editor = vim
+[push]
+	default = tracking

@@ -1,0 +1,49 @@
+call pathogen#infect()
+syntax on
+filetype on                          " try to detect filetypes
+filetype plugin indent on
+
+set title
+" color ron
+
+set number
+set hlsearch
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set hidden
+set scrolloff=3
+
+set background=dark
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_diffmode = "high"
+colorscheme solarized
+
+let mapleader=","
+let g:pep8_map='<leader>8'
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest
+map <leader>n :NERDTreeToggle<CR>
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
+nmap <leader>a <Esc>:Ack!
+
+set ttymouse=xterm2
+set mouse=a
+
+if &term == "screen-256color" || &term == "screen-256color-bce"
+  let &titlestring=expand("%:t")
+  set t_ts=k
+  set t_fs=\
+  set title
+  autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * let &titlestring='vi: '.expand("%:t")
+endif
+
+augroup filetypedetect
+  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+augroup END
+
+set t_Co=256
