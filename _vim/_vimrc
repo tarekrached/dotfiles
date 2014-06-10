@@ -14,12 +14,14 @@ set expandtab
 set hidden
 set scrolloff=3
 
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"let g:solarized_diffmode = "high"
+let g:solarized_termcolors=256
+let g:solarized_bold=0
 set background=dark
-let g:solarized_termcolors = 256
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_diffmode = "high"
 colorscheme solarized
+set background=dark
 
 let mapleader=","
 let g:pep8_map='<leader>8'

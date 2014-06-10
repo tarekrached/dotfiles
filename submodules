@@ -8,6 +8,7 @@ http://github.com/fs111/pydoc.vim.git _vim/bundle/pydoc
 http://github.com/vim-scripts/pep8.git _vim/bundle/pep8
 http://github.com/alfredodeza/pytest.vim.git _vim/bundle/py.test
 http://github.com/vim-scripts/The-NERD-tree.git _vim/bundle/nerdtree
-http://github.com/sontek/rope-vim.git _vim/bundle/ropevim
 http://github.com/Lokaltog/vim-powerline.git _vim/bundle/powerline
 http://github.com/lukaszb/vim-web-indent.git _vim/bundle/web-indent
+http://github.com/altercation/vim-colors-solarized.git _vim/bundle/vim-colors-solarized
+https://github.com/kien/ctrlp.vim _vim/bundle/ctrlp.vim
