@@ -12,3 +12,4 @@ http://github.com/Lokaltog/vim-powerline.git _vim/bundle/powerline
 http://github.com/lukaszb/vim-web-indent.git _vim/bundle/web-indent
 http://github.com/altercation/vim-colors-solarized.git _vim/bundle/vim-colors-solarized
 https://github.com/kien/ctrlp.vim _vim/bundle/ctrlp.vim
+https://github.com/ekalinin/Dockerfile.vim.git _vim/bundle/Dockerfile
