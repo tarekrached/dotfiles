@@ -71,3 +71,7 @@ if [[ $TERM == screen-256color* ]]; then
   }
   PROMPT_COMMAND="screen_set_window_title; $PROMPT_COMMAND"
 fi
+
+if [ -f ~/git-completion.bash ]; then
+  . ~/git-completion.bash
+fi
