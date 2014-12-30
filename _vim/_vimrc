@@ -49,3 +49,5 @@ augroup filetypedetect
 augroup END
 
 set t_Co=256
+let g:ctrlp_user_command = 'cd %s && ag . -f -l --nocolor'
+set clipboard=unnamed

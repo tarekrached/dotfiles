@@ -75,3 +75,7 @@ fi
 if [ -f ~/git-completion.bash ]; then
   . ~/git-completion.bash
 fi
+
+genpasswd() {
+    pwgen -Bs $1 1 |pbcopy |pbpaste; echo “Has been copied to clipboard”
+}
