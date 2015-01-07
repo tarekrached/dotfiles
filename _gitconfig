@@ -16,7 +16,7 @@
     co = checkout
     df = diff
     lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author jmagnusson
+    standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author magnussj@gmail.com
     purr = pull --rebase
     wdiff = diff --word-diff
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
