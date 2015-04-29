@@ -1,8 +1,8 @@
 #kill startup message
 startup_message off
 
-term screen-256color
-# terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#term screen-256color
+#terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 defscrollback 5120
 
