@@ -36,7 +36,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # do install prezto https://github.com/sorin-ionescu/prezto
 # sudo apt-get install zsh
-# zsh
+zsh
 git clone --recursive https://github.com/tarekrached/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
