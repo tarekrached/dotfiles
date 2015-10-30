@@ -50,7 +50,7 @@ fi
 # ~/.zsh_aliases, instead of adding them here directly.
 
 if [ -f ~/.zsh_aliases ]; then
-    . ~/.zsh_aliases
+  . ~/.zsh_aliases
 fi
 
 if [ -f ~/.zsh_custom ]; then
