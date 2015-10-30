@@ -1,1 +1,7 @@
 cdpath=( ~/code )
+
+# enable vim mode
+bindkey -v
+
+export EDITOR=vim
+export VISUAL=vim
