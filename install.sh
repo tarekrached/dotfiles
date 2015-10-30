@@ -23,7 +23,7 @@ do
 done
 
 source="${PWD}/_vim/_vimrc"
-target="${1}/.vimrc"
+target="${HOME}/.vimrc"
 link_file $source $target
 
 # do vundle install for vim plugins

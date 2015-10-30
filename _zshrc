@@ -4,7 +4,7 @@
 [ -z "$PS1" ] && return
 
 # load zgen
-source "${HOME}/code/zgen/zgen.zsh"
+source "${HOME}/code/dotfiles/zgen/zgen.zsh"
 
 # check if there's no init script
 if ! zgen saved; then
