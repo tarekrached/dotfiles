@@ -3,5 +3,9 @@ cdpath=( ~/code )
 # enable vim mode
 bindkey -v
 
+# muscle memory shortcuts
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '\e.' insert-last-word
+
 export EDITOR=vim
 export VISUAL=vim
