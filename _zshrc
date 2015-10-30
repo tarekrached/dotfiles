@@ -8,32 +8,41 @@ source "${HOME}/code/zgen/zgen.zsh"
 
 # check if there's no init script
 if ! zgen saved; then
-    echo "Creating a zgen save"
+  echo "Creating a zgen save"
 
-    zgen oh-my-zsh
+  zgen oh-my-zsh
 
-    # plugins
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/sudo
-    zgen oh-my-zsh plugins/command-not-found
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load /path/to/super-secret-private-plugin
+  # plugins
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-history-substring-search
 
-    # bulk load
-    zgen loadall <<EOPLUGINS
-        zsh-users/zsh-history-substring-search
-        /path/to/local/plugin
-EOPLUGINS
-    # ^ can't indent this EOPLUGINS
+  zgen load djui/alias-tips
 
-    # completions
-    zgen load zsh-users/zsh-completions src
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/brew
+  zgen oh-my-zsh plugins/osx
+  zgen oh-my-zsh plugins/tmux
 
-    # theme
-    zgen oh-my-zsh themes/arrow
+  # Load more completion files for zsh from the zsh-lovers github repo
+  zgen load zsh-users/zsh-completions src
 
-    # save all to init script
-    zgen save
+  # Load me last
+  GENCOMPL_FPATH=$HOME/.zsh/complete
+
+  # Very cool plugin that generates zsh completion functions for commands
+  # if they have getopt-style help text.
+  zgen load RobSis/zsh-completion-generator
+
+  # k is a zsh script / plugin to make directory listings more readable,
+  # adding a bit of color and some git status information on files and directories
+  zgen load rimraf/k
+
+  # theme
+  zgen oh-my-zsh themes/robbyrussell
+
+  # save all to init script
+  zgen save
 fi
 
 # Alias definitions.
