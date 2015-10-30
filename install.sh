@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
 function clean_link_file {
     source="${PWD}/$1"
     target="${2}/${1/_/.}"
@@ -18,7 +19,7 @@ function link_file {
 
 for i in _*
 do
-	clean_link_file $i $1
+	clean_link_file $i $HOME
 done
 
 source="${PWD}/_vim/_vimrc"
@@ -32,14 +33,30 @@ link_file $source $target
 
 # do vundle install for vim plugins
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-:BundleInstall
+# :BundleInstall
 
-# do install prezto https://github.com/sorin-ionescu/prezto
-# sudo apt-get install zsh
-zsh
-git clone --recursive https://github.com/tarekrached/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-# sudo chsh ubuntu -s /bin/zsh
+
+git clone git@github.com:tarjoilija/zgen.git
+source zgen/zgen.zsh
+
+zgen oh-my-zsh
+
+zgen load zsh-users/zsh-syntax-highlighting
+zgen load zsh-users/zsh-history-substring-search
+
+zgen load djui/alias-tips
+
+zgen oh-my-zsh plugins/git
+zgen oh-my-zsh plugins/sudo
+zgen oh-my-zsh plugins/brew
+zgen oh-my-zsh plugins/osx
+zgen oh-my-zsh plugins/tmux
+zgen load RobSis/zsh-completion-generator
+zgen load rimraf/k
+
+zgen save
+
+GENCOMPL_FPATH=$HOME/.zsh/complete
+
+
+zgen load zsh-users/zsh-completions src
